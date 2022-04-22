@@ -4,7 +4,7 @@ import tw from "twin.macro";
 
 
 import CarLogoImg from "../../../assets/images/car-logo.png";
-import CarLogoDarkImg from "../../../assets/images/car-logo-dark.png";
+// import CarLogoDarkImg from "../../../assets/images/car-logo-dark.png";
 
 const LogoContainer = styled.div`
     ${tw`
@@ -37,7 +37,7 @@ const Image = styled.div`
 export function Logo() {
     return <LogoContainer>
         <Image>
-            <img src={CarLogoImg} />
+            <img src={CarLogoImg} alt="logo" />
         </Image>
         <LogoText>RentMyCar</LogoText>
     </LogoContainer>
