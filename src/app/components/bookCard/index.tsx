@@ -1,11 +1,15 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import tw from "twin.macro";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 import { Marginer } from "../marginer";
 import { Button } from "../button";
+
+import Calendar from "react-calendar";
+import 'react-calendar/dist/Calendar.css';
+import { SCREENS } from "../responsive";
 
 
 const CardContainer = styled.div`
@@ -29,7 +33,7 @@ const CardContainer = styled.div`
 `;
 
 const ItemContainer = styled.div`
-    ${tw`flex`}
+    ${tw`flex relative`}
 `;
 
 const Icon = styled.span`
@@ -63,6 +67,24 @@ const LineSeperator = styled.span`
     `}
 `;
 
+const DateCalendar = styled(Calendar)`
+    position: absolute;
+    max-width: none;
+    top: 3.5em;
+    left: -2em;
+
+    ${({ offset }: any) => 
+        offset &&
+        css`
+            left: -6em;
+    `};
+
+    @media (min-width: ${SCREENS.md}) {
+        top: 3.5em;
+        left: -2em;
+    }
+` as any;
+
 export function BookCard() {
     return <CardContainer>
         <ItemContainer>
@@ -70,6 +92,7 @@ export function BookCard() {
                 <FontAwesomeIcon icon={faCalendarAlt} />
             </Icon>
             <Name>Pick up date</Name>
+            <DateCalendar />
         </ItemContainer>
         <LineSeperator />
         <ItemContainer>
