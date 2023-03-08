@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
+import { BookCard } from "../../components/bookCard";
 import { Navbar } from "../../components/navbar";
-import { TopSection } from "./tepSection";
+import { TopSection } from "./topSection";
 
 const PageContainer = styled.div`
     ${tw`
@@ -19,5 +20,6 @@ export function HomePage() {
     return <PageContainer>
         <Navbar />
         <TopSection />
+        <BookCard />
     </PageContainer>
 }
